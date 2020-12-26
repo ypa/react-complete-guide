@@ -3,25 +3,29 @@ import './App.css';
 import Person from './Person/Person';
 
 const App = (props) => {
-  const [ personsState, setPersons ]  = useState({
+  const [ personsState, setPersonsState ]  = useState({
     persons: [
       { name: 'Max', age: 28 },
       { name: 'Manu', age: 29},
       { name: 'Stephanie', age: 26 }
-    ],
-    otherState: 'some other value'
+    ]
   });
+
+  const [otherState, setOtherState] = useState('some other value');
+
+  console.log(personsState, otherState);
 
   const switchNameHandler = () => {
     // console.log('Was clicked!');
     // DON'T DO THIS, mutating state directly is bad: this.state.persons[0].name = 'Maximilian'
     // Instead DO this:
-    setPersons({
+    setPersonsState({
       persons: [
-      { name: 'Maximilian', age: 28 },
-      { name: 'Manu', age: 29},
-      { name: 'Stephanie', age: 27 }
-    ]});
+        { name: 'Maximilian', age: 28 },
+        { name: 'Manu', age: 29 },
+        { name: 'Stephanie', age: 27 }
+      ]
+    });
   };
 
   return (
